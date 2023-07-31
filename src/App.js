@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Add from './pages/Add';
+import Add from './pages/Add/Add';
 
 
 const  App=()=>{
@@ -8,7 +8,7 @@ const  App=()=>{
   return(
   <BrowserRouter>
   <Routes>
-    <Route path="/" element={<Add />} />  
+    <Route path="/dodajProizvod" element={<Add />} />  
   </Routes>
   </BrowserRouter>
 

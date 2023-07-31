@@ -19,6 +19,7 @@
 /* background-color: red; */
 font-family: Georgia, 'Times New Roman', Times, serif;
 color: rgba(191, 162, 143);
+margin-right: 30px;
 }
 .logo span{
  font-family: 'Times New Roman', Times, serif;
@@ -91,7 +92,8 @@ margin: 0 10px;
             .logo{
                 /* margin-right: 250px; */
                 font-size: 15px;
-                left: 100;
+                right: 100;
+                margin-right:50px;
             }
             .navbar .logo{
 display: flex;   
@@ -101,4 +103,25 @@ justify-content: center;
 
 
 
+}
+@media screen  and (max-width:555px) {
+    .iconsNav{
+       
+        width: 100px;
+        font-size: 25px;
+        
+        margin-left: 35px;
+     
+         
+        }   
+        .logo{
+            /* margin-right: 250px; */
+            font-size: 13px;
+            margin-left: 30px;
+            
+        }
+        .navbar{
+            padding-right: 45px;
+            width: 100%;
+        }
 }

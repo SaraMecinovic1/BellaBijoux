@@ -11,11 +11,12 @@ const Nav = () => {
   const myColor = "rgb(250, 179, 224)";
   const myFontColor = "rgb(77, 77, 77)";
   const [clicked, setClicked] = useState(false);
+
   const handleClicked = () => {
     setClicked(!clicked);
     console.log("Funkcija handleClicked je pozvana!");
   };
-  //   console.log(handleClicked())
+  
   return (
     <div className="navbar">
       <div id="mobile" onClick={() => handleClicked()}>
@@ -77,7 +78,7 @@ const Nav = () => {
           </div>
         </Grid>
 
-        <Grid item xs={3} md={4}>
+        <Grid item xs={5} md={4}>
           <div className="logo" style={{ textAlign: "center" }}>
             <h1 onClick={() => navigate("/")}>
               Bella<span>Bijoux</span>
@@ -85,13 +86,13 @@ const Nav = () => {
           </div>
         </Grid>
 
-        <Grid item xs={4} md={4}>
+        <Grid item xs={2} md={4}>
           <div className="iconsNav">
-            <PersonOutlineIcon fontSize="large" />
+            <PersonOutlineIcon fontSize="40px" />
             {" | "}
             <FavoriteBorderOutlinedIcon fontSize="35px" />
             {" | "}
-            <LibraryAddOutlinedIcon fontSize="35px" />
+            <LibraryAddOutlinedIcon fontSize="35px" onClick={() => navigate("/dodajProizvod")}></LibraryAddOutlinedIcon> 
           </div>
         </Grid>
       </Grid>

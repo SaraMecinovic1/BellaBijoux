@@ -1,0 +1,185 @@
+*{
+   margin: 0px;
+   padding: 0px; 
+
+}
+
+.page{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(250, 179, 224);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(77, 77, 77);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.title{
+    margin-top:50px ;
+    font-size: 35px;
+    text-align: center;
+    color: rgba(191, 162, 143);
+
+}
+.hr{
+    width: 400px;
+    border-color:rgba(193, 174, 140, 0.756);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nazivInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    text-align: left;
+}
+.nazivInput input{
+    width: 430px;
+height: 40px;
+padding-left: 20px;
+font-size: 18px;
+border: 2px solid rgba(191, 162, 143); ;
+}
+.label{
+ margin-right: 250px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+
+
+.opisInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: left;
+}
+.opisInput input{
+    width: 430px;
+    height: 80px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 2px solid rgba(191, 162, 143); ;
+}
+.opisInput label{
+    margin-right: 260px;
+}
+
+.cenaInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: left;
+}
+.cenaInput input{
+    width: 150px;
+    margin-right: 275px;
+    height: 40px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 2px solid rgba(191, 162, 143); ;
+}
+.cenaInput label{
+    margin-right: 350px;
+}
+
+.slikaInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: left;
+}
+.slikaInput input{
+    width: 430px;
+    height: 40px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 2px solid rgba(191, 162, 143); ;
+}
+.slikaInput label{
+    margin-right: 350px;
+}
+
+.addButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:450px) {
+    .nazivInput input{
+        width: 360px;
+    height: 40px;
+    padding-left: 20px;
+    font-size: 18px;
+    border: 2px solid rgba(191, 162, 143); ;
+    }
+    .label{
+     margin-right: 200px;
+      margin-bottom: 10px;
+      font-size: 25px;
+    }
+    .hr{
+        width: 350px;
+        border-color:rgba(193, 174, 140, 0.756);
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    /* OPIS */
+    .opisInput input{
+        width: 360px;
+        height: 80px;
+        padding-left: 20px;
+        font-size: 18px;
+        border: 2px solid rgba(191, 162, 143); ;
+    }
+    .opisInput label{
+        margin-right: 215px;
+    }
+
+    /* CENA */
+    .cenaInput input{
+        width: 110px;
+        margin-right: 250px;
+        height: 40px;
+        padding-left: 20px;
+        font-size: 18px;
+        border: 2px solid rgba(191, 162, 143); ;
+    }
+    .cenaInput label{
+        margin-right: 305px;
+    }
+
+    /* SLIKA */
+    .slikaInput input{
+        width: 360px;
+        height: 40px;
+        padding-left: 20px;
+        font-size: 18px;
+        border: 2px solid rgba(191, 162, 143); ;
+    }
+    .slikaInput label{
+        margin-right: 310px;
+    }
+    
+    .addButton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    
+}
