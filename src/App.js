@@ -8,7 +8,7 @@ const  App=()=>{
   return(
   <BrowserRouter>
   <Routes>
-    <Route path="/dodajProizvod" element={<Add />} />  
+    <Route path="/dodajItem" element={<Add />} />  
   </Routes>
   </BrowserRouter>
 
