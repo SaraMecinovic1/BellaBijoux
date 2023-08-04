@@ -88,7 +88,7 @@ const Nav = () => {
 
         <Grid item xs={2} md={4}>
           <div className="iconsNav">
-            <PersonOutlineIcon fontSize="40px" />
+            <PersonOutlineIcon fontSize="40px" onClick={() => navigate("/prijava")} />
             {" | "}
             <FavoriteBorderOutlinedIcon fontSize="35px" />
             {" | "}
