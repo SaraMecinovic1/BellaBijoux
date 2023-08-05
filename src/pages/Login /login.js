@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "../../nav bar/nav";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-
+import { login } from "../../firebase";
 
 const Shema = yup.object({
   email: yup
@@ -22,33 +22,16 @@ const Login = () => {
   const [state, setState] = useState(true);
   const navigate = useNavigate();
 
-  const loginFunkc = (values) => {
-    fetch("https://js-course-server.onrender.com/user/login", {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("authToken", data.token);
-          setState(false);
-          alert("Uspesna prijava");
-        } else {
-          alert("Neuspesna prijava");
-        }
-      })
-      .catch((error) => console.log("err", error));
+  const loginFunkc = async (values) => {
+    try {
+      await login(values.email, values.password);
+      alert("Uspesna prijava");
+      navigate("/dodajProizvod");
+    } catch (err) {
+      console.log("err", err);
+      alert("Pokusajte ponovo");
+    }
   };
-  //   if (state) {
-  //     return (
-  //       <div className="edit-quote-wrapper">
-  //         <h1>Loading...</h1>
-  //       </div>
-  //     );
-  //   }
 
   return (
     <div className="page">
@@ -69,14 +52,16 @@ const Login = () => {
         }) => (
           <div className="page1">
             <div className="title1">
-              <h1 > <PersonOutlineIcon className="icon" fontSize="30px"  />  MOJ NALOG</h1>
+              <h1>
+                {" "}
+                <PersonOutlineIcon className="icon" fontSize="30px" /> MOJ NALOG
+              </h1>
             </div>
             <div className="card1">
               <h2>PRIJAVA</h2>
-            <hr className="hr"></hr>
-            <label>Email adresa:</label>
+              <hr className="hr"></hr>
+              <label>Email adresa:</label>
               <input
-                
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -85,9 +70,8 @@ const Login = () => {
               <p className="error-message">
                 {errors.email && touched.email && errors.email}
               </p>
-              <label >Lozinka:</label>
+              <label>Lozinka:</label>
               <input
-                
                 type="password"
                 name="password"
                 onChange={handleChange}
@@ -96,19 +80,18 @@ const Login = () => {
               <p className="error-message">
                 {errors.password && touched.password && errors.password}
               </p>
-            <div className="butt1">
-              <button
-                type="button"
-                onClick={() => {
-                  console.log("submit work");
-                  handleSubmit();
-                }}>
-                {" "}
-                LOGIN
-              </button>
+              <div className="butt1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    console.log("submit work");
+                    handleSubmit();
+                  }}>
+                  {" "}
+                  LOGIN
+                </button>
+              </div>
             </div>
-            </div>
-            
           </div>
         )}
       </Formik>
