@@ -3,8 +3,13 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Add from "./pages/Add/Add";
 import Login from "./pages/Login /login";
 import Signup from "./pages/Signup/signup";
+import {checkUserLogin} from "./firebase"
+import { useEffect } from "react";
 
 const App = () => {
+  // useEffect(() => {
+  //   checkUserLogin()
+  // }, []);
   return (
     <BrowserRouter>
       <Routes>

@@ -5,6 +5,7 @@ import Nav from "../../nav bar/nav";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { addItem } from "../../firebase";
+import { logout } from "../../firebase";
 
 const newItemShema = yup.object({
   naziv: yup
@@ -28,11 +29,13 @@ const newItemShema = yup.object({
 const Add = () => {
   const myColor = "rgb(250, 179, 224)";
 
+
   const submitForm = async (values) => {
     try {
       await addItem(values);
       alert("Uspesno");
     } catch (err) {
+      alert("Prijavite se!")
       console.log("error", err);
     }
   };
@@ -146,6 +149,26 @@ const Add = () => {
                     variant="contained"
                     onClick={handleSubmit}>
                     Dodaj
+                  </Button>
+
+                  <Button
+                    sx={{
+                      backgroundColor: " rgba(191, 162, 143)",
+                      fontSize: 18,
+                      fontWeight: "bold",
+                      width: "200px",
+                      "&:hover": {
+                        color: myColor,
+                        backgroundColor: " rgba(191, 162, 143)",
+                      },
+                      "&:active": {
+                        color: myColor,
+                        backgroundColor: " rgba(191, 162, 143)",
+                      },
+                    }}
+                    variant="contained"
+                    onClick={logout}>
+                   LOGOUT
                   </Button>
                 </div>
               </Grid>
