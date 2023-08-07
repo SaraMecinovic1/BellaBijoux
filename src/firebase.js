@@ -32,7 +32,8 @@ const firebaseApp = initializeApp(firebaseConfig); //app
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
 
-export const addItem = async (data) => {  //data=values
+export const addItem = async (data) => {
+  //data=values
   const result = await addDoc(collection(db, "items"), data);
   return result;
 };
@@ -52,7 +53,6 @@ export const signUp = async (email, password, fullName) => {
 export const logout = async () => {
   await signOut(auth);
   console.log("odjavljeni ste");
- 
 };
 
 //Login:
@@ -77,7 +77,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-//Ubacila ovaj rule da samo prijavleni mogu pisati,brisati,update
+//Ubacila ovaj rule da samo prijavljeni mogu pisati,brisati,update
 // rules_version = '2';
 
 // service cloud.firestore {
@@ -88,3 +88,17 @@ auth.onAuthStateChanged((user) => {
 //     }
 //   }
 // }
+
+
+//Uzimamo podatke sa firebase:
+export const getItem = async () => {
+  const myColection = collection(db, "items");
+  const itemsResult = await getDocs(myColection);
+  console.log(itemsResult);
+  const itemsList = itemsResult.docs.map((doc) => { // docs === predstavlja rezultate upita nad kolekcijom dokumenata.
+    const data = doc.data(); //podaci
+    const id = doc.id; //id dokumenta
+    return { ...data, id: id };
+  });
+  return itemsList;
+};

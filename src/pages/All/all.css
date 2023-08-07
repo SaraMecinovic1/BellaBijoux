@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+   padding: 0;
+   
+}
+.page{
+    width: 100%;
+    height: 200vh;
+    background-color:  rgb(250, 200, 232); 
+  
+    
+}
+.card{
+   
+    width: 320px;
+    height: 500px;
+   /* border: 1px solid black; */
+display: flex;
+flex-direction: column;
+margin-bottom: 40px;
+}
+.proizvodi{
+    width: 100%;
+    height: 200vh;
+  /* padding: 0 10px 0 30px; */
+  padding-top: 80px;
+  
+  
+  /* background-color: wheat; */
+ 
+   
+}
+.slikaDiv{
+    width: 100%;
+    height: 380px;
+    /* border: 1px solid red; */
+    background-color: rgb(204, 89, 89);
+    
+
+}
+.info{
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid red; */
+    display: flex;
+ justify-content: space-between;
+ padding-top: 10px;
+ font-size: 25px;
+ font-weight: 500;
+}
+.cenaP{
+    font-size: 23px;
+    font-weight: 500;
+    color: rgba(191, 162, 143);
+}
+
+  @media screen  and (max-width:1100px){
+    .card{
+        width: 290px;
+        height: 500px;
+    /*  */
+    } 
+} 
+
+@media screen  and (max-width:976px){
+    .card{
+        width: 270px;
+        height: 500px;
+    }
+}   
+
+@media screen  and (max-width:624px){
+    .card{
+        width: 250px;
+        height: 500px;
+    }
+}   
+
+@media screen  and (max-width:554px) {
+    .card{
+        width: 250px;
+        height: 500px;
+    }
+}
