@@ -15,8 +15,9 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   signInWithEmailAndPassword,
-  signInWithCustomToken,
+ 
 } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyACyaYKAtcjnd4GCSlTENtM1A4grk1eTd0",
   authDomain: "react-finally-project.firebaseapp.com",
@@ -31,6 +32,8 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig); //app
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
+const storage = getStorage(firebaseApp);
+export default storage;
 
 export const addItem = async (data) => {
   //data=values
@@ -89,13 +92,13 @@ auth.onAuthStateChanged((user) => {
 //   }
 // }
 
-
 //Uzimamo podatke sa firebase:
 export const getItem = async () => {
   const myColection = collection(db, "items");
   const itemsResult = await getDocs(myColection);
   console.log(itemsResult);
-  const itemsList = itemsResult.docs.map((doc) => { // docs === predstavlja rezultate upita nad kolekcijom dokumenata.
+  const itemsList = itemsResult.docs.map((doc) => {
+    // docs === predstavlja rezultate upita nad kolekcijom dokumenata.
     const data = doc.data(); //podaci
     const id = doc.id; //id dokumenta
     return { ...data, id: id };

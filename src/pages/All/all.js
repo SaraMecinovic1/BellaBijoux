@@ -19,12 +19,13 @@ const All = () => {
       });
   }, []);
   return (
-    <div className="page">
+    <div className="page2">
+     
       <Nav />
       <div className="proizvodi">
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={0}>
           {Item.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid className="gridItem" item xs={12} sm={6} md={4} key={index}>
               <div className="card">
                 <div className="slikaDiv"> slika</div>
                 <div className="info">

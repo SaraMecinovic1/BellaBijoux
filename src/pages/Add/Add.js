@@ -6,6 +6,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { addItem } from "../../firebase";
 import { logout } from "../../firebase";
+import storage from "../../firebase";
+import { ref } from "firebase/storage";
 
 const newItemShema = yup.object({
   naziv: yup
@@ -29,13 +31,18 @@ const newItemShema = yup.object({
 const Add = () => {
   const myColor = "rgb(250, 179, 224)";
 
+  const handleUpload = () => {
+    if (!file) {
+      alert("Please choose a file first!");
+    }
+  };
 
   const submitForm = async (values) => {
     try {
       await addItem(values);
       alert("Uspesno");
     } catch (err) {
-      alert("Prijavite se!")
+      alert("Prijavite se!");
       console.log("error", err);
     }
   };
@@ -118,9 +125,10 @@ const Add = () => {
                 <div className="slikaInput">
                   <label className="label">Slika:</label>
                   <input
-                    type="text"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleChange}
                     name="slika"
-                    onChange={handleChange("slika")}
                     onBlur={handleBlur}
                     value={values.slika}></input>
                   <p className="error-message">
@@ -168,7 +176,7 @@ const Add = () => {
                     }}
                     variant="contained"
                     onClick={logout}>
-                   LOGOUT
+                    LOGOUT
                   </Button>
                 </div>
               </Grid>
