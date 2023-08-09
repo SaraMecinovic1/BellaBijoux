@@ -20,14 +20,15 @@ const All = () => {
   }, []);
   return (
     <div className="page2">
-     
       <Nav />
       <div className="proizvodi">
         <Grid container spacing={0}>
           {Item.map((item, index) => (
             <Grid className="gridItem" item xs={12} sm={6} md={4} key={index}>
               <div className="card">
-                <div className="slikaDiv"> slika</div>
+                <div className="slikaDiv">
+                  <img src={item.slika[0]} alt={`Slika ${index}`} />
+                </div>
                 <div className="info">
                   <p>{item.naziv}</p>
                   <FavoriteBorderIcon></FavoriteBorderIcon>

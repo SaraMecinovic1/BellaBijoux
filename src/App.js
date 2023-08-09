@@ -8,16 +8,14 @@ import { useEffect } from "react";
 import All from "./pages/All/all";
 
 const App = () => {
-  // useEffect(() => {
-  //   checkUserLogin()
-  // }, []);
+ 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<All />} />
         <Route path="/dodajProizvod" element={<Add />} />
         <Route path="/prijava" element={<Login />} />
-        <Route path="/2" element={<Signup />} />
+        <Route path="/registracija" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

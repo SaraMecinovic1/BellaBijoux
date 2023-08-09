@@ -15,9 +15,9 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   signInWithEmailAndPassword,
- 
 } from "firebase/auth";
 import { getStorage } from "firebase/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyACyaYKAtcjnd4GCSlTENtM1A4grk1eTd0",
   authDomain: "react-finally-project.firebaseapp.com",
@@ -32,7 +32,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig); //app
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);
-const storage = getStorage(firebaseApp);
+const storage = getStorage(firebaseApp); //storage
 export default storage;
 
 export const addItem = async (data) => {
