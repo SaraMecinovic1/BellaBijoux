@@ -4,10 +4,11 @@ import Nav from "../../nav bar/nav";
 import { Grid } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./all.css";
+import { useNavigate } from "react-router-dom";
 
 const All = () => {
   const [Item, setItem] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getItem()
       .then((data) => {
@@ -25,7 +26,11 @@ const All = () => {
         <Grid container spacing={0}>
           {Item.map((item, index) => (
             <Grid className="gridItem" item xs={12} sm={6} md={4} key={index}>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => {
+                  navigate("/detalji");
+                }}>
                 <div className="slikaDiv">
                   <img src={item.slika[0]} alt={`Slika ${index}`} />
                 </div>
