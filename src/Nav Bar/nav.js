@@ -56,7 +56,9 @@ const Nav = () => {
                   color: myColor,
                 },
               }}
-              variant="text">
+              variant="text" onClick={()=>{
+                navigate("/")
+              }}>
               Proizvodi
             </Button>
             <Button

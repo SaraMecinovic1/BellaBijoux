@@ -116,7 +116,18 @@ border: 1px solid rgba(191, 162, 143); ;
     align-items: center;
     justify-content: center;
 }
-
+input[type="file"] {
+    border: 1px solid #ccc;
+    padding: 6px;
+    
+    background-color: #f8f8f8;
+  width: 430px;
+  width: 430px;
+    height: 40px;
+    
+    font-size: 18px;
+    border: 1px solid rgba(191, 162, 143); ;
+  }
 @media screen and (max-width:450px) {
     .nazivInput input{
         width: 360px;
@@ -163,7 +174,7 @@ border: 1px solid rgba(191, 162, 143); ;
     }
 
     /* SLIKA */
-    .slikaInput input{
+    input[type="file"]{
         width: 360px;
         height: 40px;
         padding-left: 20px;

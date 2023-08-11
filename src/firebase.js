@@ -105,3 +105,11 @@ export const getItem = async () => {
   });
   return itemsList;
 };
+
+//Uzeti samo jedan podatak sa ID:
+export const getItemeById = async (id) => {
+  const docRef = doc(db, "items", id);
+  const docSnap = await getDoc(docRef);
+  const data = docSnap.data();
+  return { ...data, id: id };
+};

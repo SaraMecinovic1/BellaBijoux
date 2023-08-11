@@ -4,9 +4,10 @@ import Nav from "../../nav bar/nav";
 import { Grid } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./all.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const All = () => {
+  const params = useParams();
   const [Item, setItem] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -29,7 +30,9 @@ const All = () => {
               <div
                 className="card"
                 onClick={() => {
-                  navigate("/detalji");
+                  // navigate(`/quote/${params.id}`);
+                  console.log("Kliknuto na proizvod, params.id:", params.id);
+                  navigate(`/quote/${params.id}`);
                 }}>
                 <div className="slikaDiv">
                   <img src={item.slika[0]} alt={`Slika ${index}`} />
@@ -38,7 +41,7 @@ const All = () => {
                   <p>{item.naziv}</p>
                   <FavoriteBorderIcon></FavoriteBorderIcon>
                 </div>
-                <p className="cenaP">{item.cena}</p>
+                <p className="cenaP">{item.cena} rsd</p>
               </div>
             </Grid>
           ))}

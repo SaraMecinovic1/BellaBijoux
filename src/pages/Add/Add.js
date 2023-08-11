@@ -60,7 +60,7 @@ const Add = () => {
 
   const [file, setFile] = useState("");
   // const [imageUrl, setImageUrl] = useState("");
-  const [downloadUrls, setDownloadUrls] = useState([])
+  const [downloadUrls, setDownloadUrls] = useState([]);
   // progress
   const [percent, setPercent] = useState(0);
 
@@ -95,7 +95,6 @@ const Add = () => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           setDownloadUrls((prevUrls) => [...prevUrls, url]);
-        
         });
       }
     );
@@ -118,7 +117,7 @@ const Add = () => {
           naziv: "",
           opis: "",
           cena: "",
-          slika:downloadUrls ,
+          slika: downloadUrls,
         }}
         validationSchema={newItemShema}
         onSubmit={(values, actions) => {
@@ -189,19 +188,11 @@ const Add = () => {
               <Grid item xs={12} md={12}>
                 <div className="slikaInput">
                   <label className="label">Slika:</label>
-                  {/* <input
-                    type="file"
-                    onChange={(event) => {
-                      setFile(event.target.files[0]);
-                    }}
-                    accept="/image/*"
-                    name="slika"
-                  /> */}
                   <input
-                    type="file"
-                    onChange={handleChange}
-                    accept="/image/*"
-                    name="slika"
+                     type="file"
+                     onChange={handleChange}
+                     accept="image/*"
+                     name="slika"
                   />
                   <p className="error-message">
                     {errors.slika && touched.slika && errors.slika}

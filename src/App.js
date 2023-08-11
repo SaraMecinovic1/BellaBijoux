@@ -14,7 +14,7 @@ const App = () => {
         <Route path="/dodajProizvod" element={<Add />} />
         <Route path="/prijava" element={<Login />} />
         <Route path="/registracija" element={<Signup />} />
-        <Route path="/detalji" element={<Details />} />
+        <Route path="/detalji/:id" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );
