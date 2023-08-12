@@ -5,11 +5,20 @@ import { Grid } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./all.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { itemSlice } from "../../store/itemSlice";
 
 const All = () => {
-  const params = useParams();
   const [Item, setItem] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const itemState = useSelector((state) => state.item);
+
+  const addToFavorites = () => {
+    dispatch(itemSlice.actions.setFavorite(Item));
+    console.log("Dodato u favorite ");
+  };
+
   useEffect(() => {
     getItem()
       .then((data) => {
@@ -20,6 +29,7 @@ const All = () => {
         console.log(error, "error");
       });
   }, []);
+  
   return (
     <div className="page2">
       <Nav />
@@ -27,20 +37,25 @@ const All = () => {
         <Grid container spacing={0}>
           {Item.map((item, index) => (
             <Grid className="gridItem" item xs={12} sm={6} md={4} key={index}>
-              <div
-                className="card"
-                onClick={() => {
-                  // navigate(`/quote/${params.id}`);
-                  console.log("Kliknuto na proizvod, params.id:", params.id);
-                  navigate(`/quote/${params.id}`);
-                }}>
-                <div className="slikaDiv">
+              <div className="card">
+                <div
+                  className="slikaDiv"
+                  onClick={() => {
+                    console.log("Kliknuto na proizvod, params.id:", item.id);
+                    navigate(`/detalji/${item.id}`);
+                  }}>
                   <img src={item.slika[0]} alt={`Slika ${index}`} />
                 </div>
+
                 <div className="info">
                   <p>{item.naziv}</p>
-                  <FavoriteBorderIcon></FavoriteBorderIcon>
+
+                  <FavoriteBorderIcon
+                    onClick={() => {
+                      addToFavorites();
+                    }}></FavoriteBorderIcon>
                 </div>
+
                 <p className="cenaP">{item.cena} rsd</p>
               </div>
             </Grid>

@@ -16,7 +16,7 @@ const Nav = () => {
     setClicked(!clicked);
     console.log("Funkcija handleClicked je pozvana!");
   };
-  
+
   return (
     <div className="navbar">
       <div id="mobile" onClick={() => handleClicked()}>
@@ -56,8 +56,9 @@ const Nav = () => {
                   color: myColor,
                 },
               }}
-              variant="text" onClick={()=>{
-                navigate("/")
+              variant="text"
+              onClick={() => {
+                navigate("/");
               }}>
               Proizvodi
             </Button>
@@ -90,11 +91,23 @@ const Nav = () => {
 
         <Grid item xs={2} md={4}>
           <div className="iconsNav">
-            <PersonOutlineIcon fontSize="40px" onClick={() => navigate("/prijava")} />
+            <PersonOutlineIcon
+              fontSize="40px"
+              onClick={() => navigate("/prijava")}
+            />
             {" | "}
-            <FavoriteBorderOutlinedIcon fontSize="35px" />
+            <FavoriteBorderOutlinedIcon
+              fontSize="35px"
+              onClick={() => {
+             navigate("/listaZelja")
+              }}
+            />
             {" | "}
-            <LibraryAddOutlinedIcon fontSize="35px" onClick={() => navigate("/dodajProizvod")}></LibraryAddOutlinedIcon> 
+            <LibraryAddOutlinedIcon
+              fontSize="35px"
+              onClick={() =>
+                navigate("/dodajProizvod")
+              }></LibraryAddOutlinedIcon>
           </div>
         </Grid>
       </Grid>

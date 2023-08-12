@@ -31,7 +31,7 @@ const Details = () => {
       <Nav />
       <div className="content">
         <div className="slika">
-          <img src={Slika} alt="Opis slike" className="card-image" />
+          <img src={item.slika} alt="Opis slike" className="card-image" />
         </div>
         <div className="informacije">
           <div className="imeProizvoda"> {item.naziv}</div>
