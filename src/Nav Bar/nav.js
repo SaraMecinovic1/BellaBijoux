@@ -40,6 +40,9 @@ const Nav = () => {
                   color: myColor,
                 },
               }}
+              onClick={() => {
+                navigate("/");
+              }}
               variant="text">
               Naslovna
             </Button>
@@ -58,7 +61,7 @@ const Nav = () => {
               }}
               variant="text"
               onClick={() => {
-                navigate("/");
+                navigate("/proizvodi");
               }}>
               Proizvodi
             </Button>

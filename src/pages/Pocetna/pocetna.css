@@ -19,9 +19,91 @@
 .glavnaSlika{
     width: 100%;
     height: 500px;
-    background-color: red;
+    /* background-color: red; */
 }
 .glavnaSlika1{
     width: 100%;
     height: 500px; 
+}
+.preporucejemoDeo{
+    width: 100%;
+    height: 700px;
+    /* background-color: red; */
+    text-align: center;
+    padding-top: 30px;
+}
+.preporucejemoDeo h1{
+    color: rgba(191, 162, 143);
+    font-weight: 600;
+    font-size: 35px;
+}
+.card{
+   
+    width: 320px;
+    height: 500px;
+   /* border: 1px solid black; */
+display: flex;
+flex-direction: column;
+color: rgb(77, 77, 77);
+
+margin-bottom: 40px;
+}
+.izdvajamoDeo{
+width: 100%;
+height: auto;
+padding-top: 30px;
+/* background-color: wheat; */
+  
+   
+}
+.slikaDiv{
+    width: 100%;
+    height: 380px;
+    border: 2px solid rgb(250, 200, 232);
+    
+    
+
+}
+.prsten{
+    width: 100%;
+    height: 380px;
+}
+.butt{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+}
+.info{
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red; */
+    display: flex;
+ justify-content: space-between;
+ padding-top: 10px;
+ font-size: 20px;
+ font-weight: 500;
+}
+@media screen and (max-width:749px) {
+
+    .glavnaSlika{
+    width: 100%;
+    height: 400px;
+   
+}
+.glavnaSlika1{
+    width: 100%;
+    height: 400px; 
+}
+}
+@media screen and (max-width:500px) {
+
+    .glavnaSlika{
+    width: 100%;
+    height: 350px;
+   
+}
+.glavnaSlika1{
+    width: 100%;
+    height: 350px; 
+}
 }
