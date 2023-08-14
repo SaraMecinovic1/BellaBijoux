@@ -46,7 +46,7 @@ const Pocetna = () => {
           <img src={GlavnaSlika} alt="Opis slike" className="glavnaSlika1" />
         </div>
         <div className="preporucejemoDeo">
-          <h1>NASA PONUDA</h1>
+          <h1>NAŠA PONUDA</h1>
           <div className="izdvajamoDeo">
             <Grid container spacing={0} alignItems={"center"}>
               <Grid className="gridItem" item xs={12} sm={6} md={4}>
