@@ -158,3 +158,12 @@ margin-bottom: 20px;
   }
 
 }
+.register{
+ text-align: end;
+ margin-right: 20px;
+ font-weight: 500;
+
+}
+.register:hover {
+  color: red; /* Promena boje teksta na hoveru */
+}

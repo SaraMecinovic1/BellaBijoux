@@ -91,7 +91,9 @@ const Login = () => {
                   LOGIN
                 </button>
               </div>
-              <p></p>
+              <p className="register" onClick={()=>{
+                navigate("/registracija")
+              }}>Registruj se*</p>
             </div>
           </div>
         )}

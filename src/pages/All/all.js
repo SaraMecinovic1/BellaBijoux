@@ -14,8 +14,8 @@ const All = () => {
   const dispatch = useDispatch();
   const itemState = useSelector((state) => state.item);
 
-  const addToFavorites = () => {
-    dispatch(itemSlice.actions.setFavorite(Item));
+  const addToFavorites = (item) => {
+    dispatch(itemSlice.actions.setFavorite(item));
     console.log("Dodato u favorite ");
   };
 
@@ -52,7 +52,7 @@ const All = () => {
 
                   <FavoriteBorderIcon
                     onClick={() => {
-                      addToFavorites();
+                      addToFavorites(item);
                     }}></FavoriteBorderIcon>
                 </div>
 

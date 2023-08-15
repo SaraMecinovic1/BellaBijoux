@@ -14,14 +14,19 @@
 
 }
 .wishList{
-    width: 800px;
+    width: 900px;
     height: 150px;
-    background-color: rgb(247, 247, 165);
+    
+    border: 1px solid rgba(191, 162, 143); ;
+    border-radius: 10px;
+    display: flex;
+    color: rgb(54, 54, 54);
+    margin-bottom: 30px;
 }
 .praznaLista{
     width: 100%;
-    height: 50vh;
-    
+    height: auto;
+    margin-top: 50px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -35,4 +40,217 @@ text-align: center;
   }
   .praznaLista h2 {
     margin-bottom: 10px; /* Dodajte željeni razmak između rečenica */
+  }
+
+  .proizvod{
+width: 500px;
+height: 150px;
+/* background-color: rgb(155, 155, 209); */
+display: flex;
+
+  }
+
+  .pic1{
+    width: 200px;
+    height: 140px;
+  }
+  
+  .info2{
+display: flex;
+flex-direction: column;
+justify-content: center;
+font-size: 23px;
+padding-left: 20px;
+  }
+  .ID{
+    font-size: 18px;
+   text-align: left;
+   color: rgb(90, 89, 89);
+  }
+
+  .price{
+    width: 400px;
+    /* background-color: rgb(193, 136, 136); */
+    height: 150;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .buttoni{
+display: flex;
+align-items: center;
+  }
+  .addBut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen  and (max-width:932px){
+    .wishList{
+        width: 700px;
+        height: 120px;
+    }
+    .pic1{
+        width: 170px;
+        height: 110px;
+        
+      }
+      .info2{
+        
+        
+        font-size: 19px;
+        padding-left: 10px;
+          }
+          .ID{
+            font-size: 16px;
+           
+          }
+         
+          .addBut{
+            width: 190px;
+          }
+
+  }
+
+  @media screen  and (max-width:714px){
+    .wishList{
+        width: 600px;
+        height: 120px;
+    }
+    .pic1{
+        width: 140px;
+        height: 110px;
+      
+      }
+      .info2{
+        
+        /* background-color: red; */
+        font-size: 19px;
+        padding-left: 10px;
+        text-align: left;
+          }
+          .ID{
+            font-size: 16px;
+           
+          }
+         
+          .addBut{
+            width: 190px;
+          }
+          .price{
+            width: 440px;
+            /* background-color: rgb(193, 136, 136); */
+            height: 150;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+          .proizvod{
+            width: 300px;
+            height: 120px;
+            /* background-color: rgb(155, 155, 209); */
+            display: flex;
+            
+              }
+
+  }
+
+  @media screen  and (max-width:553px){
+    .wishList{
+        width: 500px;
+        height: 150px;
+    }
+    .pic1{
+        width: 120px;
+        height: 140px;
+      
+      }
+      .info2{
+       
+        height: 150px;
+        /* background-color: red; */
+        font-size: 19px;
+       
+        text-align: left;
+          }
+          .ID{
+            font-size: 15px;
+           
+          }
+         
+          .addBut{
+            width: 160px;
+          }
+          .price{
+            width: 440px;
+            /* background-color: rgb(193, 136, 136); */
+            height: 150;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+          .proizvod{
+           
+            height: 150px;
+           
+            
+              } 
+              .buttoni{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                  }
+  }
+
+  @media screen  and (max-width:514px){
+    .wishList{
+        width: 380px;
+        height: 150px;
+    }
+    .pic1{
+        width: 120px;
+        height: 140px;
+      
+      }
+      .info2{
+       
+        height: 150px;
+        /* background-color: red; */
+        font-size: 19px;
+       
+        text-align: left;
+          }
+          .ID{
+            font-size: 15px;
+           
+          }
+         
+          .addBut{
+            width: 160px;
+          }
+          .price{
+            width: 440px;
+            /* background-color: rgb(193, 136, 136); */
+            height: 150;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+          .proizvod{
+           
+            height: 150px;
+           
+            
+              } 
+              .buttoni{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                  }
+                  .deleteButt{
+                    color: rgb(250, 200, 232);
+                  }
   }

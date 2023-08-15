@@ -8,13 +8,9 @@ export const itemSlice = createSlice({
   initialState: initialState,
   reducers: {
     setFavorite(state, action) {
-      const item = action.payload;
-      const favIds = state.favorites.map((item) => item._id);
-      if (!favIds.includes(item._id)) {
-        state.favorites.push(item);
-       
-      }
-      return state;
+      const favoriteItem = action.payload;
+      state.favorites.push(favoriteItem);
+      return state
       
     },
    

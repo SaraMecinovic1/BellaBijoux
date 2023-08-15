@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import Favorites from "./pages/Favorites/favorites";
 import Pocetna from "./pages/Pocetna/pocetna";
+import Contact from "./pages/Contact/contact";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/registracija" element={<Signup />} />
           <Route path="/detalji/:id" element={<Details />} />
           <Route path="/listaZelja" element={<Favorites />} />
+          <Route path="/kontakt" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </Provider>
