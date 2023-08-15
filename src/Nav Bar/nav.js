@@ -78,7 +78,9 @@ const Nav = () => {
                   color: myColor,
                 },
               }}
-              variant="text">
+              variant="text"   onClick={() => {
+                navigate("/kontakt");
+              }}>
               kontakt
             </Button>
           </div>
