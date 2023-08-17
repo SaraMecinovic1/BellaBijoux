@@ -23,61 +23,23 @@ const newItemShema = yup.object({
     .string()
     .required("opis je obavezno polje")
     .min(6, "opis mora da ima najmanje 6 karaktera")
-    .max(300, "opis mora da ima najvise 200 karaktera"),
+    .max(400, "opis mora da ima najvise 400 karaktera"),
   slika: yup.string().required("slika je obavezno polje"),
 });
 
 const Add = () => {
   const myColor = "rgb(250, 179, 224)";
 
-  // const handleUpload = () => {
-  //   if (!file) {
-  //     alert("Please choose a file!");
-  //   }
-
-  //   const storageRef = ref(storage, `/files/${file.name}`);
-  //   const uploadTask = uploadBytesResumable(storageRef, file);
-
-  //   uploadTask.on(
-  //     "state_changed",
-  //     (snapshot) => {
-  //       const percent = Math.round(
-  //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-  //       );
-
-  //       // update progress
-  //       setPercent(percent);
-  //     },
-  //     (err) => console.log(err),
-  //     () => {
-  //       // download url
-  //       getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-  //         console.log(url);
-  //       });
-  //     }
-  //   );
-  // };
-
   const [file, setFile] = useState("");
-  // const [imageUrl, setImageUrl] = useState("");
   const [downloadUrls, setDownloadUrls] = useState([]);
-  // progress
   const [percent, setPercent] = useState(0);
 
-  // Handle file upload event and update state
   function handleChange(event) {
     setFile(event.target.files[0]);
   }
 
   const handleUpload = () => {
-    if (!file) {
-      alert("Please upload an image first!");
-    }
-
     const storageRef = ref(storage, `/files/${file.name}`);
-
-    // progress can be paused and resumed. It also exposes progress updates.
-    // Receives the storage reference and the file to upload.
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
@@ -87,12 +49,10 @@ const Add = () => {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
 
-        // update progress
         setPercent(percent);
       },
       (err) => console.log(err),
       () => {
-        // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           setDownloadUrls((prevUrls) => [...prevUrls, url]);
         });
@@ -103,6 +63,19 @@ const Add = () => {
   const submitForm = async (values) => {
     try {
       await addItem(values);
+      console.log("Uspesno dodato, SUBMIT FORM");
+    } catch (err) {
+      alert("Prijavite se!");
+      console.log("error", err);
+    }
+  };
+
+  const handleSubmit = async (values, actions) => {
+    handleUpload();
+    try {
+      await submitForm(values);
+      setFile(""); // Resetujte polje za unos slike nakon uspešnog slanja
+      actions.resetForm();
       alert("Uspesno");
     } catch (err) {
       alert("Prijavite se!");
@@ -122,8 +95,7 @@ const Add = () => {
         validationSchema={newItemShema}
         onSubmit={(values, actions) => {
           //handleSubmit je ovo
-          handleUpload();
-          submitForm(values);
+          handleSubmit(values, actions);
           console.log(values);
           actions.resetForm();
         }}>
@@ -189,10 +161,13 @@ const Add = () => {
                 <div className="slikaInput">
                   <label className="label">Slika:</label>
                   <input
-                     type="file"
-                     onChange={handleChange}
-                     accept="image/*"
-                     name="slika"
+                    type="file"
+                    onChange={(event) => {
+                      handleChange(event);
+                      setFile(event.target.files[0]); // Ažurirajte file stanje prilikom izbora slike
+                    }}
+                    accept="image/*"
+                    name="slika"
                   />
                   <p className="error-message">
                     {errors.slika && touched.slika && errors.slika}

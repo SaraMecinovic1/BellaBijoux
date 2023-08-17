@@ -47,7 +47,7 @@ const Contact = () => {
             u <br></br> prilogu, ili direktno preko kontakt forme
           </p>
         </div>
-        <div className="informacije">
+        <div className="informacije1">
           <Grid container spacing={2} alignItems={"center"}>
             <Grid className="gridItem1" item xs={12} sm={6} md={4}>
               <div className="info4">

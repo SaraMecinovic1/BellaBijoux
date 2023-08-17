@@ -161,8 +161,7 @@ const Pocetna = () => {
 
                     <FavoriteBorderIcon
                       onClick={() => {
-                        addToFavorites();
-                        alert("Dodato u listu zelja");
+                       console.log("button koji ne radi nista")
                       }}></FavoriteBorderIcon>
                   </div>
 

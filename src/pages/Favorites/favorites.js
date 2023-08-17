@@ -56,13 +56,13 @@ const Favorites = () => {
               <div className="proizvod">
                 <img className="pic1" src={Slika} alt={`Slika`} />
                 <div className="info2">
-                  <p className="naziv2">Vanilla Cloud Cream</p>
-                  <p className="ID">ID: 11112342322</p>
+                  <p className="naziv2">{item.naziv}</p>
+                  <p className="ID">ID: {item.id}</p>
                 </div>
               </div>
 
               <div className="price">
-                <h3>3,999 RSD</h3>
+                <h3>{item.cena} rsd</h3>
 
                 <div className="buttoni">
                   <Button
@@ -77,7 +77,7 @@ const Favorites = () => {
                         backgroundColor: "rgb(250, 200, 232)",
                       },
                       // display: "inline-block", // Postavite inline prikaz
-                      "@media (max-width: 514px)": {
+                      "@media (max-width: 553px)": {
                         // Primena stilova ispod 514px
                         display: "none", // Sakrij dugme ispod 514px
                       },

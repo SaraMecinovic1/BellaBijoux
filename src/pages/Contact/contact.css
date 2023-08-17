@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: bisque;
+  /* background-color: bisque; */
 }
 
 .ostalo {
@@ -35,7 +35,7 @@
   font-size: 30px;
   font-weight: 500;
 }
-.informacije {
+.informacije1 {
   margin-top: 0px;
   width: 100%;
   height: auto;
@@ -126,3 +126,10 @@
     width: 400px;
   }
 }
+
+@media screen and (max-width: 421px) {
+  .inputs {
+    width: 350px;
+  }
+}
+
