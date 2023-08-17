@@ -29,6 +29,7 @@ const newItemShema = yup.object({
 
 const Add = () => {
   const myColor = "rgb(250, 179, 224)";
+  const [isLoading, setIsLoading] = useState(false);
 
   const [file, setFile] = useState("");
   const [downloadUrls, setDownloadUrls] = useState([]);
@@ -61,6 +62,7 @@ const Add = () => {
   };
 
   const submitForm = async (values) => {
+    setIsLoading(true);
     try {
       await addItem(values);
       console.log("Uspesno dodato, SUBMIT FORM");
@@ -68,6 +70,7 @@ const Add = () => {
       alert("Prijavite se!");
       console.log("error", err);
     }
+    setIsLoading(false);
   };
 
   const handleSubmit = async (values, actions) => {
@@ -85,6 +88,9 @@ const Add = () => {
 
   return (
     <div>
+{isLoading ? (
+        <div className="loading1">Loading...</div>
+      ) : (
       <Formik
         initialValues={{
           naziv: "",
@@ -224,6 +230,7 @@ const Add = () => {
           </div>
         )}
       </Formik>
+      )}
     </div>
   );
 };

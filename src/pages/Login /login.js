@@ -20,9 +20,11 @@ const Shema = yup.object({
 });
 const Login = () => {
   const [state, setState] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const loginFunkc = async (values) => {
+    setIsLoading(true);
     try {
       await login(values.email, values.password);
       alert("Uspesna prijava");
@@ -31,11 +33,15 @@ const Login = () => {
       console.log("err", err);
       alert("Pokusajte ponovo");
     }
+    setIsLoading(false);
   };
 
   return (
     <div className="page">
       <Nav />
+      {isLoading ? (
+        <div className="loading1">Loading...</div>
+      ) : (
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={Shema}
@@ -87,17 +93,24 @@ const Login = () => {
                     console.log("submit work");
                     handleSubmit();
                   }}>
+                   
                   {" "}
                   LOGIN
                 </button>
+               
               </div>
-              <p className="register" onClick={()=>{
-                navigate("/registracija")
-              }}>Registruj se*</p>
+              <p
+                className="register"
+                onClick={() => {
+                  navigate("/registracija");
+                }}>
+                Registruj se*
+              </p>
             </div>
           </div>
         )}
       </Formik>
+      )}
     </div>
   );
 };

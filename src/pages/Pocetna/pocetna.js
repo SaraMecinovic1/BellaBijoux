@@ -89,7 +89,7 @@ const Pocetna = () => {
                       {" "}
                       <ShoppingBagIcon
                         sx={{ marginRight: "7px" }}></ShoppingBagIcon>{" "}
-                      kupite proizvod
+                      pogledaj ponudu
                     </Button>
                   </div>
                 </div>
@@ -139,7 +139,7 @@ const Pocetna = () => {
                       {" "}
                       <ShoppingBagIcon
                         sx={{ marginRight: "7px" }}></ShoppingBagIcon>{" "}
-                      kupite proizvod
+                      pogledaj ponudu
                     </Button>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const Pocetna = () => {
                       {" "}
                       <ShoppingBagIcon
                         sx={{ marginRight: "7px" }}></ShoppingBagIcon>{" "}
-                      kupite proizvod
+                      pogledaj ponudu
                     </Button>
                   </div>
                 </div>

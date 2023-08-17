@@ -17,9 +17,12 @@ const Schema = yup.object({
   });
 const Signup = () => {
   const [state, setState] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
  
   const submitForm = async (values) => {
+    setIsLoading(true);
     try{
 
         await signUp(values.email, values.password, values.fullName);
@@ -30,6 +33,7 @@ const Signup = () => {
         console.log(err, "ERROR")
         alert("Pokusajte ponovo")
     }
+    setIsLoading(false);
     console.log(values)
   };
 
@@ -45,6 +49,9 @@ const Signup = () => {
   return (
     <div className="page">
       <Nav />
+      {isLoading ? (
+        <div className="loading1">Loading...</div>
+      ) : (
       <Formik
         initialValues={{ fullName: "", email: "", password: "", confirmPassword: ""}}
         validationSchema={Schema}
@@ -129,6 +136,7 @@ const Signup = () => {
           </div>
         )}
       </Formik>
+       )}
     </div>
   );
 };
