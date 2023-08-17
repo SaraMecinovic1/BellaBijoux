@@ -4,16 +4,36 @@ import "./contact.css";
 import Call from "./slike/call.png";
 import Mail from "./slike/mail.png";
 import Global from "./slike/global.png";
+import { Grid } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const Contact = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Sending email:", { email, subject, message });
-    // Ovde možete dodati kod za slanje emaila prema vašem backend-u ili servisu za slanje emailova
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    // Ovde treba pozvati backend endpoint za slanje e-maila
+    console.log("Podaci za slanje e-maila:", name, email, message);
+  };
+
+  const handleClearFields = () => {
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -28,59 +48,97 @@ const Contact = () => {
           </p>
         </div>
         <div className="informacije">
-          <div className="info4">
-            <img src={Call} alt="Moj icon" />
-            <p>TELEFON</p>
-            <p>+381 61 27 10 922</p>
-          </div>
+          <Grid container spacing={2} alignItems={"center"}>
+            <Grid className="gridItem1" item xs={12} sm={6} md={4}>
+              <div className="info4">
+                <img src={Call} alt="Moj icon" />
+                <p>TELEFON</p>
+                <p>+381 61 27 10 922</p>
+              </div>
+            </Grid>
 
-          <div className="info4">
-            <img src={Mail} alt="Moj icon" />
-            <p>EMAIL:</p>
-            <p>bellabijoux@gmail.com</p>
-          </div>
+            <Grid className="gridItem" item xs={12} sm={6} md={4}>
+              <div className="info4">
+                <img src={Mail} alt="Moj icon" />
+                <p>EMAIL:</p>
+                <p>bellabijoux@gmail.com</p>
+              </div>
+            </Grid>
 
-          <div className="info4">
-            <img src={Global} alt="Moj icon" />
-            <p>ADRESA:</p>
-            <p>Terazije 15-23, 11000 Beograd</p>
-          </div>
+            <Grid className="gridItem" item xs={12} sm={6} md={4}>
+              <div className="info4">
+                <img src={Global} alt="Moj icon" />
+                <p>ADRESA:</p>
+                <p>Terazije 15-23, 11000 Beograd</p>
+              </div>
+            </Grid>
+          </Grid>
         </div>
 
-        <div className="email-form">
-          <h2>Kontaktirajte nas</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email">Vaša email adresa:</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+        <div className="pitanje">
+          <p>Imate pitanje?</p>
+          <div className="inputs">
+            <TextField
+              className="textField"
+              id="standard-multiline-flexible"
+              label="Ime i prezime:*"
+              multiline
+              maxRows={2}
+              variant="standard"
+              sx={{  width: "100%", color: "pink", marginBottom: "40px" }}
+              value={name}
+              onChange={handleNameChange}
+            />
+
+            <TextField
+              className="textField"
+              id="standard-multiline-flexible"
+              label="Email:*"
+              multiline
+              maxRows={2}
+              variant="standard"
+              sx={{  width: "100%", color: "pink", marginBottom: "40px" }}
+              value={email}
+              onChange={handleEmailChange}
+            />
+
+            <TextField
+              className="textField"
+              id="outlined-multiline-static"
+              label="Poruka"
+              multiline
+              rows={6}
+              sx={{
+                width: "100%",
+                borderRadius: "5px",
+              }}
+              value={message}
+              onChange={handleMessageChange}
+            />
+
+            <div className="button">
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "rgb(255, 200, 232)",
+                  "&:hover": {
+                    backgroundColor: "rgb(250, 200, 232)",
+                  },
+                  "&:active": {
+                    backgroundColor: "rgb(250, 200, 232)",
+                  },
+                }}
+                onClick={() => {
+                  handleSubmit();
+                  handleClearFields();
+                  alert("Poslato...");
+
+                }}>
+                {" "}
+                Posaljite poruku...
+              </Button>
             </div>
-            <div>
-              <label htmlFor="subject">Naslov poruke:</label>
-              <input
-                type="text"
-                id="subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message">Poruka:</label>
-              <textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit">Pošalji</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

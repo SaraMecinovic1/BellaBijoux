@@ -1,62 +1,128 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
   padding: 0;
 }
-.contactPage{
-    width: 100%;
-    height: auto;
-   color: rgb(46, 46, 46);
+.contactPage {
+  width: 100%;
+  /* height: 100vh;g  iuyq   */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: bisque;
 }
 
-.ostalo{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-
+.ostalo {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-.textDeo{
-    width: 100%;
-    height: 150px;
-    /* background-color: red; */
-    text-align: center;
-    margin-top: 50px;
-    
+.textDeo {
+  width: 100%;
+  height: 150px;
+  /* background-color: red; */
+  text-align: center;
+  margin-top: 50px;
 }
-.textDeo p{
-    margin-top: 20px;
-    font-size: 19px;
-    font-weight: 300;
+.textDeo p {
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: 300;
 }
-.textDeo h2{
-    font-size: 30px;
-    font-weight: 500;
+.textDeo h2 {
+  font-size: 30px;
+  font-weight: 500;
 }
-.informacije{
-    margin-top: 0px;
-    width: 100%;
-    height: 300px;
-    /* background-color: red; */
-    display: flex;
-    align-items: center;
-    color: rgb(74, 73, 73);
-    justify-content: space-around;
-
+.informacije {
+  margin-top: 0px;
+  width: 100%;
+  height: auto;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  color: rgb(86, 85, 85);
+  justify-content: space-around;
 }
-.info4{
-    width: 250px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: aqua;
-
+.info4 {
+  width: 250px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: aqua; */
 }
-.info4 p{
+.info4 p {
   font-size: 17px;
-font-weight: 400;
-margin-top: 10px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.gridItem1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pitanje {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.pitanje p {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.button {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: end;
+  margin-top: 70px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.textField:focus {
+  outline-color: "rgb(255, 200, 232)";
+}
+
+.inputs {
+  width: 1000px;
+}
+@media screen and (max-width: 1054px) {
+  .inputs {
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 931px) {
+  .inputs {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 826px) {
+  .inputs {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 718px) {
+  .inputs {
+    width: 600px;
+  }
+}
+
+
+/* NE RADI */
+@media screen and (max-width: 614px) {
+  .inputs {
+    width: 400px;
+  }
 }
