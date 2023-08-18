@@ -1,5 +1,4 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import Nav from "../../nav bar/nav";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -8,11 +7,21 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import Slika from "../Pocetna/slike/charm.jpg";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useDispatch, useSelector } from "react-redux";
+import { itemSlice } from "../../store/itemSlice";
 
 const Favorites = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.item.favorites); // useSelector-da uzmemo taj state,al ne da ga promenimo
-  console.log(favorites);
+  console.log(favorites, "favoretes");
+
+  const deleteHandler = (id) => {
+    dispatch(itemSlice.actions.removeFavorite(id));
+    console.log("izbrisano");
+
+   
+  };
 
   return (
     <div className="favoritesPage">
@@ -86,9 +95,12 @@ const Favorites = () => {
                     Dodaj u korpu
                   </Button>
                   <DeleteForeverIcon
-                  className="deleteButt"
+                    className="deleteButt"
                     sx={{ marginLeft: "7px" }}
-                    fontSize="large"></DeleteForeverIcon>
+                    fontSize="large"
+                    onClick={() => {
+                      deleteHandler(item.id);
+                    }}></DeleteForeverIcon>
                 </div>
               </div>
             </div>

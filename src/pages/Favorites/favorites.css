@@ -260,4 +260,9 @@ align-items: center;
                   .deleteButt{
                     color: rgb(250, 200, 232);
                   }
+                  .ID{
+                    font-size: 12px;
+                   text-align: left;
+                   color: rgb(90, 89, 89);
+                  }
   }

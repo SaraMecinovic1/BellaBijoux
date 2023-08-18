@@ -23,7 +23,7 @@ const newItemShema = yup.object({
     .string()
     .required("opis je obavezno polje")
     .min(6, "opis mora da ima najmanje 6 karaktera")
-    .max(400, "opis mora da ima najvise 400 karaktera"),
+    .max(500, "opis mora da ima najvise 500 karaktera"),
   slika: yup.string().required("slika je obavezno polje"),
 });
 

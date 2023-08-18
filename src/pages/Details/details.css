@@ -8,7 +8,6 @@
   /* display: flex;
   flex-direction: column;
   align-items: center; /* Centriranje vertikalno */
-  
 }
 .content {
   width: 100%;
@@ -16,27 +15,24 @@
   justify-content: space-between; /* Raspodeljuje prostor između elemenata */
   align-items: center;
   color: rgb(72, 72, 72);
-  background-color: rgb(251, 212, 212);
-  /* display: flex;
-  flex-direction: row; */
-  /* justify-content: space-between;
-  align-items: center; */
-  /* padding: 0 30px 0 30px; */
- 
+  /* background-color: rgb(251, 212, 212); */
+
+  padding: 0 30px 0 30px;
 }
 .slika {
-  width: 70%;
+  width: 80%;
   height: 70vh;
   display: flex;
   align-items: center;
-justify-content: center;
-  background-color: red;
+  justify-content: center;
+  margin-top: 80px;
 }
-.informacije {
-  background-color: goldenrod;
-  width: 80%;
-  height: 50vh;
 
+.informacije {
+  /* background-color: goldenrod; */
+  width: 70%;
+  height: 70vh;
+  margin-top: 70px;
   /* background-color: rgb(88, 214, 218); */
 }
 .imeProizvoda {
@@ -68,20 +64,142 @@ hr {
   border: 1px solid rgb(250, 200, 232);
 }
 .card-image {
-  width: 100%;
+  max-width: 100%;
   height: 70vh;
 }
 
 .gridItem2 {
-  /* margin-right: 0;
+  margin-right: 0;
   display: flex;
   align-items: center;
-  justify-content: center; */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: center;
 }
 
+.gridItem3 {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 938px) {
+  .opisProizvoda {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgb(54, 53, 53);
+  }
+  .slika {
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+  }
+}
+/* 834 */
+@media screen and (max-width: 845px) {
+  .gridItem2 {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
+
+  .gridItem3 {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .slika {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  .informacije {
+    width: 100%;
+    height: 70vh;
+    margin-top: 70px;
+    /* background-color: rgb(88, 214, 218); */
+  }
+  .content {
+    padding: 0 10px 0 20px;
+  }
+}
+
+@media screen and (max-width: 671px) {
+  .opisProizvoda {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: rgb(54, 53, 53);
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .opisProizvoda {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgb(54, 53, 53);
+  }
+  .slika {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    
+  }
+  .gridItem2 {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+  }
+
+  .gridItem3 {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+}
+@media screen and (max-width: 555px) {
+  .opisProizvoda {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: rgb(54, 53, 53);
+  }
+  .slika {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    
+  }
+  .gridItem2 {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+  }
+  .content {
+    padding: 0 30px 0 30px;
+  }
+  .buttoni1{
+    display: flex;
+align-items: flex-start;
+
+  }
+}

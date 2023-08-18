@@ -23,21 +23,7 @@ const Pocetna = () => {
   };
 
   const [recommendedDocuments, setRecommendedDocuments] = useState([]);
-  //   useEffect(() => {
-  //     const fetchRecommendedDocuments = async () => {
-  //       try {
-  //         const recommendedRef = db.collection("items").limit(4);
-  //         const snapshot = await recommendedRef.get();
 
-  //         const documents = snapshot.docs.map((doc) => doc.data());
-  //         setRecommendedDocuments(documents);
-  //       } catch (error) {
-  //         console.error("Error fetching recommended documents:", error);
-  //       }
-  //     };
-
-  //     fetchRecommendedDocuments();
-  //   }, []);
   return (
     <div className="pocetnaPage">
       <Nav />
@@ -161,7 +147,7 @@ const Pocetna = () => {
 
                     <FavoriteBorderIcon
                       onClick={() => {
-                       console.log("button koji ne radi nista")
+                        console.log("button koji ne radi nista");
                       }}></FavoriteBorderIcon>
                   </div>
 

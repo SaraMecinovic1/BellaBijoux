@@ -11,7 +11,7 @@ import { Grid } from "@mui/material";
 
 const Details = () => {
   const [item, setItem] = useState({});
-  
+
   const params = useParams();
   const getItemData = () => {
     getItemeById(params.id)
@@ -29,54 +29,51 @@ const Details = () => {
   console.log(item);
 
   return (
-   
-      <div className="detailsPage">
-        <Nav />
-        <div className="content">
-          <Grid container spacing={0}>
-            
-            <Grid className="gridItem2" item xs={12} sm={6} md={6}>
-              <div className="slika">
-                <img src={Slika} alt="Opis slike" className="card-image" />
-              </div>
-            </Grid>
-            <Grid className="gridItem2" item xs={12} sm={6} md={6}>
-              <div className="informacije">
-                <div className="imeProizvoda"> {item.naziv}</div>
-                <div className="opisProizvoda">{item.opis}</div>
-                <hr></hr>
-                <div className="cenaProizvoda"> {item.cena} rsd</div>
-                <div className="buttoni">
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: "rgb(250, 200, 232)",
-                      "&:hover": {
-                        backgroundColor: "rgb(250, 200, 232)",
-                      },
-                      "&:active": {
-                        backgroundColor: "rgb(250, 200, 232)",
-                      },
-                    }}>
-                    {" "}
-                    <ShoppingBagIcon
-                      sx={{ marginRight: "7px" }}></ShoppingBagIcon>{" "}
-                    Dodaj u korpu
-                  </Button>
-                </div>
-                <div className="listaZelja">
-                  <div className="likeButton">
-                    <FavoriteBorderIcon></FavoriteBorderIcon>
-                  </div>
-                  <div className="addWish"> Dodaj u listu zelja</div>
-                </div>
-              </div>
-            </Grid>
+    <div className="detailsPage">
+      <Nav />
+      <div className="content">
+        <Grid container spacing={0} >
+          <Grid className="gridItem3"item xs={12} sm={6} md={6}>
+            <div className="slika">
+              <img src={Slika} alt="Opis slike" className="card-image"/>
+            </div>
           </Grid>
-        </div>
+          <Grid className="gridItem2" item xs={12} sm={6} md={6}>
+            <div className="informacije">
+              <div className="imeProizvoda"> {item.naziv}</div>
+              <div className="opisProizvoda">{item.opis}</div>
+              <hr></hr>
+              <div className="cenaProizvoda"> {item.cena} rsd</div>
+              <div className="buttoni1">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "rgb(250, 200, 232)",
+                    "&:hover": {
+                      backgroundColor: "rgb(250, 200, 232)",
+                    },
+                    "&:active": {
+                      backgroundColor: "rgb(250, 200, 232)",
+                    },
+                  }}>
+                  {" "}
+                  <ShoppingBagIcon
+                    sx={{ marginRight: "7px" }}></ShoppingBagIcon>{" "}
+                  Dodaj u korpu
+                </Button>
+              </div>
+              <div className="listaZelja">
+                <div className="likeButton">
+                  <FavoriteBorderIcon></FavoriteBorderIcon>
+                </div>
+                <div className="addWish"> Dodaj u listu zelja</div>
+              </div>
+            </div>
+          </Grid>
+        </Grid>
       </div>
-    );
-  
+    </div>
+  );
 };
 
 export default Details;
