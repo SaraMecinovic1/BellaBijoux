@@ -48,7 +48,7 @@ const All = () => {
               <Grid className="gridItem" item xs={12} sm={6} md={4} key={index}>
                 <div className="card">
                   <div
-                    className="slikaDiv"
+                    className="slikaDiv1"
                     onClick={() => {
                       console.log("Kliknuto na proizvod, params.id:", item.id);
                       navigate(`/detalji/${item.id}`);
