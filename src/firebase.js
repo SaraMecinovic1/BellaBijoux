@@ -36,7 +36,6 @@ const storage = getStorage(firebaseApp); //storage
 export default storage;
 
 export const addItem = async (data) => {
-  //data=values
   const result = await addDoc(collection(db, "items"), data);
   return result;
 };
@@ -113,4 +112,3 @@ export const getItemeById = async (id) => {
   const data = docSnap.data();
   return { ...data, id: id };
 };
-

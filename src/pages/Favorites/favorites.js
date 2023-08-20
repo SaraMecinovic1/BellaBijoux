@@ -63,7 +63,7 @@ const Favorites = () => {
           favorites.map((item, index) => (
             <div className="wishList" key={index}>
               <div className="proizvod">
-                <img className="pic1" src={Slika} alt={`Slika`} />
+                <img className="pic1"  src={item.slika} alt={`Slika`} />
                 <div className="info2">
                   <p className="naziv2">{item.naziv}</p>
                   <p className="ID">ID: {item.id}</p>

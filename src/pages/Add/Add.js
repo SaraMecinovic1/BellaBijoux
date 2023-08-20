@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Grid, Button } from "@mui/material";
 import "./Add.css";
 import Nav from "../../nav bar/nav";
@@ -30,206 +30,200 @@ const newItemShema = yup.object({
 const Add = () => {
   const myColor = "rgb(250, 179, 224)";
   const [isLoading, setIsLoading] = useState(false);
-
+  const formikRef = useRef(null);
   const [file, setFile] = useState("");
-  const [downloadUrls, setDownloadUrls] = useState([]);
-  const [percent, setPercent] = useState(0);
+  const [downloadUrl, setDownloadUrl] = useState("");
 
-  function handleChange(event) {
-    setFile(event.target.files[0]);
-  }
-
-  const handleUpload = () => {
-    const storageRef = ref(storage, `/files/${file.name}`);
+  const handleUpload = async () => {
+    const storageRef = ref(storage, file.name);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+    return new Promise((resolve, reject) => {
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // Handle progress if needed
+        },
+        (err) => reject(err),
+        async () => {
+          try {
+            const url = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve(url);
+          } catch (error) {
+            reject(error);
+          }
+        }
+      );
+    });
+  };
 
-        setPercent(percent);
-      },
-      (err) => console.log(err),
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          setDownloadUrls((prevUrls) => [...prevUrls, url]);
-        });
+  const handleSubmit = async (values) => {
+    try {
+      setIsLoading(true);
+
+      const imageUrl = await handleUpload();
+
+      if (imageUrl) {
+        await addItem({ ...values, slika: imageUrl });
+        console.log("Uspesno dodato, SUBMIT FORM");
+        formikRef.current.resetForm(); // Reset the form after successful submission
+        setFile(""); // Reset the file input
+      } else {
+        console.log("URL slike nije dostupan.");
       }
-    );
-  };
-
-  const submitForm = async (values) => {
-    setIsLoading(true);
-    try {
-      await addItem(values);
-      console.log("Uspesno dodato, SUBMIT FORM");
     } catch (err) {
-      alert("Prijavite se!");
       console.log("error", err);
-    }
-    setIsLoading(false);
-  };
-
-  const handleSubmit = async (values, actions) => {
-    handleUpload();
-    try {
-      await submitForm(values);
-      setFile(""); // Resetujte polje za unos slike nakon uspešnog slanja
-      actions.resetForm();
-      alert("Uspesno");
-    } catch (err) {
-      alert("Prijavite se!");
-      console.log("error", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div>
-{isLoading ? (
+      {isLoading ? (
         <div className="loading1">Loading...</div>
       ) : (
-      <Formik
-        initialValues={{
-          naziv: "",
-          opis: "",
-          cena: "",
-          slika: downloadUrls,
-        }}
-        validationSchema={newItemShema}
-        onSubmit={(values, actions) => {
-          //handleSubmit je ovo
-          handleSubmit(values, actions);
-          console.log(values);
-          actions.resetForm();
-        }}>
-        {({
-          values, // formikov state => { email: "", password: "" }
-          errors, // errors = { email: 'Neispravan email', password: 'Password is required field' }
-          touched, // touched = { email: true }
-          handleChange,
-          handleBlur,
-          handleSubmit,
-        }) => (
-          <div className="page">
-            <Nav />
-            <h1 className="title">Dodaj svoj proizvod</h1>
-            <hr className="hr"></hr>
-            <Grid container spacing={2} alignItems="center">
-              <Grid item xs={12} md={12}>
-                <div className="nazivInput">
-                  <label className="label">Naziv proizvoda:</label>
-                  <input
-                    type="text"
-                    name="naziv"
-                    onChange={handleChange("naziv")}
-                    onBlur={handleBlur}
-                    value={values.naziv}></input>
-                  <p className="error-message">
-                    {errors.naziv && touched.naziv && errors.naziv}
-                  </p>
-                </div>
-              </Grid>
+        <Formik
+          innerRef={formikRef}
+          initialValues={{
+            naziv: "",
+            opis: "",
+            cena: "",
+            slika: "",
+          }}
+          validationSchema={newItemShema}
+          onSubmit={(values, actions) => {
+            //handleSubmit je ovo
+            handleSubmit(values, actions);
+            console.log(values);
+            actions.resetForm();
+          }}>
+          {({
+            values, // formikov state => { email: "", password: "" }
+            errors, // errors = { email: 'Neispravan email', password: 'Password is required field' }
+            touched, // touched = { email: true }
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          }) => (
+            <div className="page">
+              <Nav />
+              <h1 className="title">Dodaj svoj proizvod</h1>
+              <hr className="hr"></hr>
+              <Grid container spacing={2} alignItems="center">
+                <Grid item xs={12} md={12}>
+                  <div className="nazivInput">
+                    <label className="label">Naziv proizvoda:</label>
+                    <input
+                      type="text"
+                      name="naziv"
+                      onChange={handleChange("naziv")}
+                      onBlur={handleBlur}
+                      value={values.naziv}></input>
+                    <p className="error-message">
+                      {errors.naziv && touched.naziv && errors.naziv}
+                    </p>
+                  </div>
+                </Grid>
 
-              <Grid item xs={12} md={12}>
-                <div className="opisInput">
-                  <label className="label">Opis proizvoda:</label>
-                  <input
-                    type="text"
-                    name="opis"
-                    onChange={handleChange("opis")}
-                    onBlur={handleBlur}
-                    value={values.opis}></input>
-                  <p className="error-message">
-                    {errors.opis && touched.opis && errors.opis}
-                  </p>
-                </div>
-              </Grid>
+                <Grid item xs={12} md={12}>
+                  <div className="opisInput">
+                    <label className="label">Opis proizvoda:</label>
+                    <input
+                      type="text"
+                      name="opis"
+                      onChange={handleChange("opis")}
+                      onBlur={handleBlur}
+                      value={values.opis}></input>
+                    <p className="error-message">
+                      {errors.opis && touched.opis && errors.opis}
+                    </p>
+                  </div>
+                </Grid>
 
-              <Grid item xs={12} md={12}>
-                <div className="cenaInput">
-                  <label className="label">Cena:</label>
-                  <input
-                    type="number"
-                    name="cena"
-                    onChange={handleChange("cena")}
-                    onBlur={handleBlur}
-                    value={values.cena}></input>
-                  <p className="error-message">
-                    {errors.cena && touched.cena && errors.cena}
-                  </p>
-                </div>
-              </Grid>
+                <Grid item xs={12} md={12}>
+                  <div className="cenaInput">
+                    <label className="label">Cena:</label>
+                    <input
+                      type="number"
+                      name="cena"
+                      onChange={handleChange("cena")}
+                      onBlur={handleBlur}
+                      value={values.cena}></input>
+                    <p className="error-message">
+                      {errors.cena && touched.cena && errors.cena}
+                    </p>
+                  </div>
+                </Grid>
 
-              <Grid item xs={12} md={12}>
-                <div className="slikaInput">
-                  <label className="label">Slika:</label>
-                  <input
-                    type="file"
-                    onChange={(event) => {
-                      handleChange(event);
-                      setFile(event.target.files[0]); // Ažurirajte file stanje prilikom izbora slike
-                    }}
-                    accept="image/*"
-                    name="slika"
-                  />
-                  <p className="error-message">
-                    {errors.slika && touched.slika && errors.slika}
-                  </p>
-                </div>
-              </Grid>
+                <Grid item xs={12} md={12}>
+                  <div className="slikaInput">
+                    <label className="label">Slika:</label>
+                    <input
+                      type="file"
+                      onChange={(event) => {
+                        setFile(event.target.files[0]); // Ažurirajte file stanje prilikom izbora slike
+                        handleChange(event); // Pozovite handleChange kako biste ažurirali formik stanje
+                      }}
+                      accept="image/*"
+                      name="slika"
+                    />
 
-              <Grid item xs={12} md={12}>
-                <div className="addButton">
-                  <Button
-                    sx={{
-                      backgroundColor: " rgba(191, 162, 143)",
-                      fontSize: 18,
-                      fontWeight: "bold",
-                      width: "200px",
-                      "&:hover": {
-                        color: myColor,
+                    <p className="error-message">
+                      {errors.slika && touched.slika && errors.slika}
+                    </p>
+                  </div>
+                </Grid>
+
+                <Grid item xs={12} md={12}>
+                  <div className="addButton">
+                    <Button
+                      sx={{
                         backgroundColor: " rgba(191, 162, 143)",
-                      },
-                      "&:active": {
-                        color: myColor,
-                        backgroundColor: " rgba(191, 162, 143)",
-                      },
-                    }}
-                    variant="contained"
-                    onClick={() => {
-                      handleSubmit();
-                    }}>
-                    Dodaj
-                  </Button>
+                        fontSize: 18,
+                        fontWeight: "bold",
+                        width: "200px",
+                        "&:hover": {
+                          color: myColor,
+                          backgroundColor: " rgba(191, 162, 143)",
+                        },
+                        "&:active": {
+                          color: myColor,
+                          backgroundColor: " rgba(191, 162, 143)",
+                        },
+                      }}
+                      variant="contained"
+                      onClick={() => {
+                        handleSubmit();
+                      }}>
+                      Dodaj
+                    </Button>
 
-                  <Button
-                    sx={{
-                      backgroundColor: " rgba(191, 162, 143)",
-                      fontSize: 18,
-                      fontWeight: "bold",
-                      width: "200px",
-                      "&:hover": {
-                        color: myColor,
+                    <Button
+                      sx={{
                         backgroundColor: " rgba(191, 162, 143)",
-                      },
-                      "&:active": {
-                        color: myColor,
-                        backgroundColor: " rgba(191, 162, 143)",
-                      },
-                    }}
-                    variant="contained"
-                    onClick={logout}>
-                    LOGOUT
-                  </Button>
-                </div>
+                        fontSize: 18,
+                        fontWeight: "bold",
+                        width: "200px",
+                        "&:hover": {
+                          color: myColor,
+                          backgroundColor: " rgba(191, 162, 143)",
+                        },
+                        "&:active": {
+                          color: myColor,
+                          backgroundColor: " rgba(191, 162, 143)",
+                        },
+                      }}
+                      variant="contained"
+                      onClick={logout}>
+                      LOGOUT
+                    </Button>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-        )}
-      </Formik>
+            </div>
+          )}
+        </Formik>
       )}
     </div>
   );

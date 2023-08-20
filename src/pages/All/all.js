@@ -55,7 +55,7 @@ const All = () => {
                     }}>
                     <img
                       className="itemPic"
-                      src={item.slika[0]}
+                      src={item.slika}
                       alt={`Slika ${index}`}
                     />
                     {/* <img className="itemPic" src={Slika} alt={`Slika `} /> */}
