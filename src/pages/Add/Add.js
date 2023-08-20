@@ -5,7 +5,6 @@ import Nav from "../../nav bar/nav";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { addItem } from "../../firebase";
-import { logout } from "../../firebase";
 import storage from "../../firebase";
 import { useState } from "react";
 
@@ -32,7 +31,6 @@ const Add = () => {
   const [isLoading, setIsLoading] = useState(false);
   const formikRef = useRef(null);
   const [file, setFile] = useState("");
-  const [downloadUrl, setDownloadUrl] = useState("");
 
   const handleUpload = async () => {
     const storageRef = ref(storage, file.name);
@@ -199,25 +197,7 @@ const Add = () => {
                       Dodaj
                     </Button>
 
-                    <Button
-                      sx={{
-                        backgroundColor: " rgba(191, 162, 143)",
-                        fontSize: 18,
-                        fontWeight: "bold",
-                        width: "200px",
-                        "&:hover": {
-                          color: myColor,
-                          backgroundColor: " rgba(191, 162, 143)",
-                        },
-                        "&:active": {
-                          color: myColor,
-                          backgroundColor: " rgba(191, 162, 143)",
-                        },
-                      }}
-                      variant="contained"
-                      onClick={logout}>
-                      LOGOUT
-                    </Button>
+                    
                   </div>
                 </Grid>
               </Grid>

@@ -16,7 +16,7 @@ const Schema = yup.object({
       
   });
 const Signup = () => {
-  const [state, setState] = useState(true);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();

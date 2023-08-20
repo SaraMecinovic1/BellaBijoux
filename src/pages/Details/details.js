@@ -4,17 +4,17 @@ import "./details.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Button from "@mui/material/Button";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import Slika from "./slika.jpeg";
 import { useParams } from "react-router-dom";
 import { getItemeById } from "../../firebase";
 import { Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { itemSlice } from "../../store/itemSlice";
 
 const Details = () => {
   const [item, setItem] = useState({});
   const dispatch = useDispatch();
   const params = useParams();
+
   const getItemData = () => {
     getItemeById(params.id)
       .then((data) => {
@@ -25,10 +25,10 @@ const Details = () => {
       });
   };
 
+  // eslint-disable-next-line
   useEffect(() => {
     getItemData();
   }, []);
-  console.log(item);
 
   const addToFavorites = (item) => {
     dispatch(itemSlice.actions.setFavorite(item));
@@ -42,7 +42,7 @@ const Details = () => {
         <Grid container spacing={0}>
           <Grid className="gridItem3" item xs={12} sm={6} md={6}>
             <div className="slika">
-              <img  src={item.slika} alt="Opis slike" className="card-image" />
+              <img src={item.slika} alt="Opis slike" className="card-image" />
             </div>
           </Grid>
           <Grid className="gridItem2" item xs={12} sm={6} md={6}>

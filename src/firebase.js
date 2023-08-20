@@ -7,8 +7,6 @@ import {
   addDoc,
   getDoc,
   doc,
-  updateDoc,
-  deleteDoc,
 } from "firebase/firestore";
 import {
   getAuth,

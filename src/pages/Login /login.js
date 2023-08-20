@@ -19,7 +19,6 @@ const Shema = yup.object({
     .max(50, "Lozinka mora da ima najvise 50 karaktera"),
 });
 const Login = () => {
-  const [state, setState] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 

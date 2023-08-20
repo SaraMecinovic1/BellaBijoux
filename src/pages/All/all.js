@@ -4,10 +4,9 @@ import Nav from "../../nav bar/nav";
 import { Grid } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./all.css";
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { itemSlice } from "../../store/itemSlice";
-import Slika from "../Pocetna/slike/charm.jpg";
 
 const All = () => {
   const [Item, setItem] = useState([]);
@@ -15,7 +14,6 @@ const All = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const itemState = useSelector((state) => state.item);
 
   const addToFavorites = (item) => {
     dispatch(itemSlice.actions.setFavorite(item));

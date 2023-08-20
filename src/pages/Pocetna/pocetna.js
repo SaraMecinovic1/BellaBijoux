@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Nav from "../../nav bar/nav";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GlavnaSlika from "./glavna.jpg";
 import "./pocetna.css";
-import { db } from "../../firebase";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { itemSlice } from "../../store/itemSlice";
 import PrstenSlika from "./slike/prsten.jpg";
 import Button from "@mui/material/Button";
@@ -22,7 +21,7 @@ const Pocetna = () => {
     console.log("Dodato u favorite ");
   };
 
-  const [recommendedDocuments, setRecommendedDocuments] = useState([]);
+  const [recommendedDocuments ] = useState([]);
 
   return (
     <div className="pocetnaPage">
