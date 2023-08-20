@@ -21,7 +21,7 @@ const Pocetna = () => {
     console.log("Dodato u favorite ");
   };
 
-  const [recommendedDocuments ] = useState([]);
+  const [recommendedDocuments] = useState([]);
 
   return (
     <div className="pocetnaPage">
@@ -49,6 +49,7 @@ const Pocetna = () => {
                     <p> PRSTENJE</p>
 
                     <FavoriteBorderIcon
+                      color="red"
                       onClick={() => {
                         addToFavorites();
                         alert("Dodato u listu zelja");
@@ -102,7 +103,8 @@ const Pocetna = () => {
                       onClick={() => {
                         addToFavorites();
                         alert("Dodato u listu zelja");
-                      }}></FavoriteBorderIcon>
+                      }}
+                    />
                   </div>
 
                   <div className="butt">
