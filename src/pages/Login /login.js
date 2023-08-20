@@ -3,7 +3,7 @@ import "./login.css";
 import * as yup from "yup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { login } from "../../firebase";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import "./details.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Button from "@mui/material/Button";

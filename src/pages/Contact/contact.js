@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import "./contact.css";
 import Call from "./slike/call.png";
 import Mail from "./slike/mail.png";

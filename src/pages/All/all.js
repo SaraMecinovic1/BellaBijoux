@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getItem } from "../../firebase";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import { Grid } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./all.css";

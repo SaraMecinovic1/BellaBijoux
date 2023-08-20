@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import "./favorites.css";

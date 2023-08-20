@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Grid, Button } from "@mui/material";
 import "./Add.css";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { addItem } from "../../firebase";

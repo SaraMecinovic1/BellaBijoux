@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "../../nav bar/nav";
+import Nav from "../../nav-bar/nav";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GlavnaSlika from "./glavna.jpg";
 import "./pocetna.css";
