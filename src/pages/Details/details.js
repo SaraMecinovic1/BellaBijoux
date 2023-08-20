@@ -25,9 +25,9 @@ const Details = () => {
       });
   };
 
-  // eslint-disable-next-line
   useEffect(() => {
     getItemData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addToFavorites = (item) => {
