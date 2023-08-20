@@ -83,7 +83,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   margin-top: 70px;
   border-radius: 5px;
   margin-bottom: 50px;
@@ -119,7 +119,6 @@
   }
 }
 
-
 /* NE RADI */
 @media screen and (max-width: 614px) {
   .inputs {
@@ -132,4 +131,3 @@
     width: 350px;
   }
 }
-
