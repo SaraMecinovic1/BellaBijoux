@@ -196,8 +196,6 @@ const Add = () => {
                       }}>
                       Dodaj
                     </Button>
-
-                    
                   </div>
                 </Grid>
               </Grid>
